@@ -7,15 +7,15 @@ import lesson03.model.entity.enums.Freshness;
  */
 public class Herb {
 
-    private Bouquet.Steam steam;
+    private Bouquet.Stem stem;
     private Freshness freshness;
 
-    public Bouquet.Steam getSteam() {
-        return steam;
+    public Bouquet.Stem getStem() {
+        return stem;
     }
 
-    public void setSteam(Bouquet.Steam steam) {
-        this.steam = steam;
+    public void setStem(Bouquet.Stem stem) {
+        this.stem = stem;
     }
 
     public Freshness getFreshness() {

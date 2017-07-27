@@ -26,7 +26,7 @@ public class Bouquet {
         ALLWAYS, FESTIVE, FUNERAL, WEDDING
     }
 
-    enum Steam {
+    enum Stem {
         NONE, SHORT, MEDIUM, LONG
     }
 
@@ -92,5 +92,14 @@ public class Bouquet {
 
     public void addHerbToBouquet(Herb herb) {
         this.herbs.add(herb);
+    }
+
+    public void setStemForHerb(Stem stem) {
+        for (Herb herb : herbs)
+            herb.setStem(stem);
+    }
+
+    public void setStemForHerb(Stem stem, Herb herb) {
+        herb.setStem(stem);
     }
 }
