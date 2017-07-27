@@ -20,8 +20,8 @@ public class Model {
     private List<Integer> statistics = new ArrayList<Integer>();
 
     public Model() {
-        this.maxNumber = MAX_NUMBER;
-        this.minNumber = MIN_NUMBER;
+        this.maxNumber = MAX_NUMBER - 1;
+        this.minNumber = MIN_NUMBER + 1;
     }
 
     public int getMaxNumber() {
@@ -44,10 +44,6 @@ public class Model {
         return secretNumber;
     }
 
-    public void setSecretNumber(int secretNumber) {
-        this.secretNumber = secretNumber;
-    }
-
     public List<Integer> getStatistics() {
         return statistics;
     }
@@ -57,29 +53,12 @@ public class Model {
     }
 
     public void rand(int minNumber, int maxNumber) {
-        this.secretNumber = minNumber + (int) (Math.random() * (maxNumber - minNumber + 1));
+        this.secretNumber = minNumber + 1 + (int) (Math.random() * (maxNumber - minNumber - 1));
     }
-
-    public boolean isInRange(int number, int minNumber, int maxNumber) {
-        return (number >= minNumber && number <= maxNumber);
-    }
-
-    //Business logic
-
-    public boolean isInStatistics(int number) {
-        return statistics.contains(number);
-    }
-
-    public void changeMaxNumber(int inputNumber){
+    public void changeBorder(int inputNumber){
         if (inputNumber > secretNumber) {
             maxNumber = inputNumber;
         }
-    }
-
-    /**
-     * Change minimum threshold of range if input number less than searchable number
-     * */
-    public void changeMinNumber(int inputNumber){
         if (inputNumber < secretNumber) {
             minNumber = inputNumber;
         }
@@ -88,7 +67,7 @@ public class Model {
     @Override
     public String toString() {
         return "Model{" +
-                "answer=" + answer +
+                "last answer=" + answer +
                 ", statistics=" + statistics +
                 '}';
     }
